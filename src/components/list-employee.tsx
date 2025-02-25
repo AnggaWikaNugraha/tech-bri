@@ -3,7 +3,7 @@ import { Employee } from '../types/employee';
 
 interface EmployeeListProps {
   employees: Employee[];
-  onDelete: (id: string) => void;
+  onDelete?: (id: string) => void;
 }
 
 export const EmployeeList: React.FC<EmployeeListProps> = ({ employees, onDelete }) => {
@@ -36,7 +36,11 @@ export const EmployeeList: React.FC<EmployeeListProps> = ({ employees, onDelete 
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <button
-                    onClick={() => onDelete(employee.id!)}
+                    onClick={() => {
+                      if (onDelete) {
+                        onDelete(employee.id!)
+                      }
+                    }}
                     className="text-red-600 hover:text-red-900 transition-colors"
                     aria-label={`Delete ${employee.firstName} ${employee.lastName}`}
                   >

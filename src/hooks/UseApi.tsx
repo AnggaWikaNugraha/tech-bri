@@ -3,6 +3,7 @@ import axios, { AxiosRequestConfig } from 'axios';
 
 interface UseApiResponse {
     data: any | null;
+    setData: any;
     loading: boolean;
     error: string | null;
     refetch: () => void;
@@ -42,7 +43,7 @@ const useApi = (
         fetchData();
     }, [url, method, body]);
 
-    return { data, loading, error, refetch: fetchData };
+    return { data, setData, loading, error, refetch: fetchData };
 }
 
 export default useApi;
