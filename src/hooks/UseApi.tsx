@@ -3,7 +3,7 @@ import axios, { AxiosRequestConfig } from 'axios';
 
 interface UseApiResponse {
     data: any | null;
-    setData: any;
+    setData: React.Dispatch<React.SetStateAction<any | null>>;
     loading: boolean;
     error: string | null;
     refetch: () => void;

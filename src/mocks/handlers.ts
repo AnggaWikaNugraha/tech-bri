@@ -41,7 +41,7 @@ export const handlers = [
     rest.post(`${BASE_URL}/auth/login`, async (req, res, ctx) => {
         const { email, password } = await req.json();
 
-        if (email === 'test@example.com' && password === 'password123') {
+        if (email === 'bob@email.com' && password === 'password') {
             return res(
                 ctx.status(200),
                 ctx.json({
